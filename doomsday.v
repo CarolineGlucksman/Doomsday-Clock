@@ -23,7 +23,7 @@ module doomsday(output reg [6:0] seg, output reg [3:0] AN, input countup, input 
 	reg downstart = 0;
 	reg timerstart = 0;
 	reg alarmstart = 0;
-	reg [3:0] bin0, bin1, bin2, bin3 = 0;
+	wire [3:0] bin0, bin1, bin2, bin3;
 	wire [6:0] segtemp00, segtemp0, segtemp1, segtemp2, segtemp3;
 	wire [3:0] ANtemp00, ANtemp0, ANtemp1, ANtemp2, ANtemp3;
 
@@ -64,12 +64,12 @@ module doomsday(output reg [6:0] seg, output reg [3:0] AN, input countup, input 
 		end
 
 	//SegDisplay(segtemp00, ANtemp00, bin0, bin1, bin2, bin3, clk);
-	//showclock showclk0(segtemp00, ANtemp00, bin3, bin2, bin1, bin0, clk);
-	countingup clockfunction(segtemp00, ANtemp00, clk, 0, 1);
+	showclock showclk0(segtemp00, ANtemp00, bin3, bin2, bin1, bin0, clk);
+	//countingup clockfunction(segtemp00, ANtemp00, clk, 0, 1);
 	countingup up1(segtemp0, ANtemp0, clk, reset, upstart);
 	countingdown down1(segtemp1, ANtemp1, clk, reset, downstart);
 	timer timer1(.seg(segtemp2), .AN(ANtemp2), .clk(clk), .reset(reset), .start(timerstart), .increase(increase), .mode(timerset));
-	alarm alarm1(.seg(segtemp3), .AN(ANtemp3), .clk(clk), .reset(reset), .start(alarmstart), .increase(increase), .mode(alarmset));
+	alarm alarm1(.seg(segtemp3), .AN(ANtemp3), .clk(clk), .reset(reset), .start(alarmstart), .increase(increase), .mode(alarmset), .current0(bin0), .current1(bin1), .current2(bin2), .current3(bin3));
 
 
 	

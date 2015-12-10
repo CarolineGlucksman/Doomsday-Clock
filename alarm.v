@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module alarm(output [6:0] seg, output [3:0] AN, input clk, input reset, input start, input increase, input mode
+module alarm(output [6:0] seg, output [3:0] AN, input clk, input reset, input start, input increase, input mode, input current0, input current1, input current2, input current3
     );
 	wire slowclock, ignore, push, pushdown, pushup;
 	reg [3:0] bin0, bin1, bin2, bin3;
@@ -29,6 +29,7 @@ module alarm(output [6:0] seg, output [3:0] AN, input clk, input reset, input st
 	clock_divider #(.COUNTER_DIV(26)) clkdivalarm (slowclock, clk, reset, start);
 	
 	PushButton_Debouncer pbd1(clk, increase, push, pushdown, pushup);
+
 	
 	always @ (posedge push)
 	begin
@@ -77,7 +78,7 @@ module alarm(output [6:0] seg, output [3:0] AN, input clk, input reset, input st
 	end
 else if (slowclock)
 	begin
-		if (bin3 == b3 && bin2 == b2 && bin1 == b1 && bin0 == b0) begin
+		if (bin3 == current3 && current2 == b2 && current1 == b1 && current0 == b0) begin
 			bin0 <= b0;
 			bin1 <= b1;
 			bin2 <= b2;

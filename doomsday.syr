@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: doomsday.prj
 
@@ -117,8 +117,6 @@ Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\clock_
 Parsing module <clock_divider>.
 Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\timer.v" into library work
 Parsing module <timer>.
-Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\showclock.v" into library work
-Parsing module <showclock>.
 Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\countup.v" into library work
 Parsing module <countingup>.
 Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\countingdown.v" into library work
@@ -134,7 +132,7 @@ Parsing module <doomsday>.
 
 Elaborating module <doomsday>.
 
-Elaborating module <showclock>.
+Elaborating module <countingup>.
 
 Elaborating module <clock_divider(COUNTER_DIV=26)>.
 WARNING:HDLCompiler:413 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\clock_divider.v" Line 39: Result of 27-bit expression is truncated to fit in 26-bit target.
@@ -145,9 +143,7 @@ Elaborating module <seven_alternate>.
 WARNING:HDLCompiler:413 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\seven_alternate.v" Line 31: Result of 19-bit expression is truncated to fit in 18-bit target.
 
 Elaborating module <binary_to_segment>.
-WARNING:HDLCompiler:1127 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v" Line 67: Assignment to bin3 ignored, since the identifier is never used
-
-Elaborating module <countingup>.
+WARNING:HDLCompiler:189 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v" Line 68: Size mismatch in connection of port <reset>. Formal port size is 1-bit while actual signal size is 32-bit.
 
 Elaborating module <countingdown>.
 
@@ -165,10 +161,6 @@ WARNING:HDLCompiler:1127 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\al
 
 Synthesizing Unit <doomsday>.
     Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v".
-INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v" line 67: Output port <bin3> of the instance <showclk0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v" line 67: Output port <bin2> of the instance <showclk0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v" line 67: Output port <bin1> of the instance <showclk0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v" line 67: Output port <bin0> of the instance <showclk0> is unconnected or connected to loadless signal.
     Found 4-bit register for signal <AN>.
     Found 7-bit register for signal <seg>.
     Found 1-bit register for signal <downstart>.
@@ -180,20 +172,21 @@ INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v" l
 	inferred   8 Multiplexer(s).
 Unit <doomsday> synthesized.
 
-Synthesizing Unit <showclock>.
-    Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\showclock.v".
+Synthesizing Unit <countingup>.
+    Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\countup.v".
     Found 4-bit register for signal <bin1>.
     Found 4-bit register for signal <bin2>.
     Found 4-bit register for signal <bin3>.
     Found 4-bit register for signal <bin0>.
-    Found 4-bit adder for signal <bin3[3]_GND_2_o_add_5_OUT> created at line 51.
-    Found 4-bit adder for signal <bin2[3]_GND_2_o_add_7_OUT> created at line 54.
-    Found 4-bit adder for signal <bin1[3]_GND_2_o_add_10_OUT> created at line 57.
-    Found 4-bit adder for signal <bin0[3]_GND_2_o_add_14_OUT> created at line 60.
+    Found 4-bit adder for signal <bin3[3]_GND_2_o_add_4_OUT> created at line 51.
+    Found 4-bit adder for signal <bin2[3]_GND_2_o_add_6_OUT> created at line 54.
+    Found 4-bit adder for signal <bin1[3]_GND_2_o_add_9_OUT> created at line 57.
+    Found 4-bit adder for signal <bin0[3]_GND_2_o_add_13_OUT> created at line 60.
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  16 D-type flip-flop(s).
-Unit <showclock> synthesized.
+	inferred   4 Multiplexer(s).
+Unit <countingup> synthesized.
 
 Synthesizing Unit <clock_divider>.
     Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\clock_divider.v".
@@ -231,32 +224,16 @@ Synthesizing Unit <binary_to_segment>.
 	inferred   1 RAM(s).
 Unit <binary_to_segment> synthesized.
 
-Synthesizing Unit <countingup>.
-    Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\countup.v".
-    Found 4-bit register for signal <bin1>.
-    Found 4-bit register for signal <bin2>.
-    Found 4-bit register for signal <bin3>.
-    Found 4-bit register for signal <bin0>.
-    Found 4-bit adder for signal <bin3[3]_GND_7_o_add_4_OUT> created at line 51.
-    Found 4-bit adder for signal <bin2[3]_GND_7_o_add_6_OUT> created at line 54.
-    Found 4-bit adder for signal <bin1[3]_GND_7_o_add_9_OUT> created at line 57.
-    Found 4-bit adder for signal <bin0[3]_GND_7_o_add_13_OUT> created at line 60.
-    Summary:
-	inferred   4 Adder/Subtractor(s).
-	inferred  16 D-type flip-flop(s).
-	inferred   4 Multiplexer(s).
-Unit <countingup> synthesized.
-
 Synthesizing Unit <countingdown>.
     Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\countingdown.v".
     Found 4-bit register for signal <bin1>.
     Found 4-bit register for signal <bin3>.
     Found 4-bit register for signal <bin2>.
     Found 4-bit register for signal <bin0>.
-    Found 4-bit subtractor for signal <bin3[3]_GND_8_o_sub_5_OUT> created at line 51.
-    Found 4-bit subtractor for signal <bin2[3]_GND_8_o_sub_7_OUT> created at line 54.
-    Found 4-bit subtractor for signal <bin1[3]_GND_8_o_sub_10_OUT> created at line 57.
-    Found 4-bit subtractor for signal <bin0[3]_GND_8_o_sub_14_OUT> created at line 60.
+    Found 4-bit subtractor for signal <bin3[3]_GND_7_o_sub_5_OUT> created at line 51.
+    Found 4-bit subtractor for signal <bin2[3]_GND_7_o_sub_7_OUT> created at line 54.
+    Found 4-bit subtractor for signal <bin1[3]_GND_7_o_sub_10_OUT> created at line 57.
+    Found 4-bit subtractor for signal <bin0[3]_GND_7_o_sub_14_OUT> created at line 60.
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  16 D-type flip-flop(s).
@@ -274,14 +251,14 @@ INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\timer.v" line
     Found 4-bit register for signal <bin2>.
     Found 4-bit register for signal <bin3>.
     Found 4-bit register for signal <b0>.
-    Found 4-bit subtractor for signal <bin3[3]_GND_10_o_sub_29_OUT> created at line 93.
-    Found 4-bit subtractor for signal <bin2[3]_GND_10_o_sub_34_OUT> created at line 96.
-    Found 4-bit subtractor for signal <bin1[3]_GND_10_o_sub_39_OUT> created at line 99.
-    Found 4-bit subtractor for signal <bin0[3]_GND_10_o_sub_44_OUT> created at line 102.
-    Found 4-bit adder for signal <b3[3]_GND_10_o_add_5_OUT> created at line 47.
-    Found 4-bit adder for signal <b2[3]_GND_10_o_add_7_OUT> created at line 50.
-    Found 4-bit adder for signal <b1[3]_GND_10_o_add_10_OUT> created at line 53.
-    Found 4-bit adder for signal <b0[3]_GND_10_o_add_14_OUT> created at line 56.
+    Found 4-bit subtractor for signal <bin3[3]_GND_9_o_sub_33_OUT> created at line 96.
+    Found 4-bit subtractor for signal <bin2[3]_GND_9_o_sub_38_OUT> created at line 99.
+    Found 4-bit subtractor for signal <bin1[3]_GND_9_o_sub_43_OUT> created at line 102.
+    Found 4-bit subtractor for signal <bin0[3]_GND_9_o_sub_48_OUT> created at line 105.
+    Found 4-bit adder for signal <b3[3]_GND_9_o_add_5_OUT> created at line 49.
+    Found 4-bit adder for signal <b2[3]_GND_9_o_add_7_OUT> created at line 52.
+    Found 4-bit adder for signal <b1[3]_GND_9_o_add_10_OUT> created at line 55.
+    Found 4-bit adder for signal <b0[3]_GND_9_o_add_14_OUT> created at line 58.
     Summary:
 	inferred   8 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
@@ -294,7 +271,7 @@ Synthesizing Unit <PushButton_Debouncer>.
     Found 17-bit register for signal <PB_cnt>.
     Found 1-bit register for signal <PB_state>.
     Found 1-bit register for signal <PB_sync_0>.
-    Found 17-bit adder for signal <PB_cnt[16]_GND_11_o_add_5_OUT> created at line 54.
+    Found 17-bit adder for signal <PB_cnt[16]_GND_10_o_add_5_OUT> created at line 54.
     Found 1-bit comparator equal for signal <PB_idle> created at line 41
     Summary:
 	inferred   1 Adder/Subtractor(s).
@@ -313,18 +290,18 @@ INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\alarm.v" line
     Found 4-bit register for signal <bin2>.
     Found 4-bit register for signal <bin3>.
     Found 4-bit register for signal <b0>.
-    Found 4-bit adder for signal <b3[3]_GND_12_o_add_5_OUT> created at line 47.
-    Found 4-bit adder for signal <b2[3]_GND_12_o_add_7_OUT> created at line 50.
-    Found 4-bit adder for signal <b1[3]_GND_12_o_add_10_OUT> created at line 53.
-    Found 4-bit adder for signal <b0[3]_GND_12_o_add_14_OUT> created at line 56.
-    Found 4-bit adder for signal <bin3[3]_GND_12_o_add_32_OUT> created at line 99.
-    Found 4-bit adder for signal <bin2[3]_GND_12_o_add_37_OUT> created at line 102.
-    Found 4-bit adder for signal <bin1[3]_GND_12_o_add_42_OUT> created at line 105.
-    Found 4-bit adder for signal <bin0[3]_GND_12_o_add_47_OUT> created at line 108.
-    Found 4-bit comparator equal for signal <bin3[3]_b3[3]_equal_25_o> created at line 77
-    Found 4-bit comparator equal for signal <bin2[3]_b2[3]_equal_26_o> created at line 77
-    Found 4-bit comparator equal for signal <bin1[3]_b1[3]_equal_27_o> created at line 77
-    Found 4-bit comparator equal for signal <bin0[3]_b0[3]_equal_28_o> created at line 77
+    Found 4-bit adder for signal <b3[3]_GND_11_o_add_5_OUT> created at line 49.
+    Found 4-bit adder for signal <b2[3]_GND_11_o_add_7_OUT> created at line 52.
+    Found 4-bit adder for signal <b1[3]_GND_11_o_add_10_OUT> created at line 55.
+    Found 4-bit adder for signal <b0[3]_GND_11_o_add_14_OUT> created at line 58.
+    Found 4-bit adder for signal <bin3[3]_GND_11_o_add_36_OUT> created at line 102.
+    Found 4-bit adder for signal <bin2[3]_GND_11_o_add_41_OUT> created at line 105.
+    Found 4-bit adder for signal <bin1[3]_GND_11_o_add_46_OUT> created at line 108.
+    Found 4-bit adder for signal <bin0[3]_GND_11_o_add_51_OUT> created at line 111.
+    Found 4-bit comparator equal for signal <bin3[3]_b3[3]_equal_29_o> created at line 80
+    Found 4-bit comparator equal for signal <bin2[3]_b2[3]_equal_30_o> created at line 80
+    Found 4-bit comparator equal for signal <bin1[3]_b1[3]_equal_31_o> created at line 80
+    Found 4-bit comparator equal for signal <bin0[3]_b0[3]_equal_32_o> created at line 80
     Summary:
 	inferred   8 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
@@ -355,8 +332,8 @@ Macro Statistics
 # Comparators                                          : 6
  1-bit comparator equal                                : 2
  4-bit comparator equal                                : 4
-# Multiplexers                                         : 44
- 4-bit 2-to-1 multiplexer                              : 35
+# Multiplexers                                         : 48
+ 4-bit 2-to-1 multiplexer                              : 39
  4-bit 4-to-1 multiplexer                              : 5
  7-bit 2-to-1 multiplexer                              : 4
 
@@ -425,13 +402,6 @@ INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_AN> will be implemented on LUTs eith
     -----------------------------------------------------------------------
 Unit <seven_alternate> synthesized (advanced).
 
-Synthesizing (advanced) Unit <showclock>.
-The following registers are absorbed into counter <bin1>: 1 register on signal <bin1>.
-The following registers are absorbed into counter <bin2>: 1 register on signal <bin2>.
-The following registers are absorbed into counter <bin3>: 1 register on signal <bin3>.
-The following registers are absorbed into counter <bin0>: 1 register on signal <bin0>.
-Unit <showclock> synthesized (advanced).
-
 Synthesizing (advanced) Unit <timer>.
 The following registers are absorbed into counter <b0>: 1 register on signal <b0>.
 The following registers are absorbed into counter <bin3>: 1 register on signal <bin3>.
@@ -478,8 +448,6 @@ Optimizing unit <timer> ...
 
 Optimizing unit <alarm> ...
 
-Optimizing unit <showclock> ...
-
 Optimizing unit <countingup> ...
 
 Optimizing unit <countingdown> ...
@@ -487,10 +455,12 @@ WARNING:Xst:1710 - FF/Latch <bin1_3> (without init value) has a constant value o
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bin3_3> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <up1/bin3_3> (without init value) has a constant value of 0 in block <doomsday>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <up1/bin1_3> (without init value) has a constant value of 0 in block <doomsday>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_14> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_14> <showclk0/sg1/sa3/count_14> <up1/sg1/sa3/count_14> <down1/sg2/sa3/count_14> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_15> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_15> <showclk0/sg1/sa3/count_15> <up1/sg1/sa3/count_15> <down1/sg2/sa3/count_15> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_16> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_16> <showclk0/sg1/sa3/count_16> <up1/sg1/sa3/count_16> <down1/sg2/sa3/count_16> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_17> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_17> <showclk0/sg1/sa3/count_17> <up1/sg1/sa3/count_17> <down1/sg2/sa3/count_17> 
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clockfunction/bin3_3> (without init value) has a constant value of 0 in block <doomsday>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clockfunction/bin1_3> (without init value) has a constant value of 0 in block <doomsday>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_14> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_14> <up1/sg1/sa3/count_14> <clockfunction/sg1/sa3/count_14> <down1/sg2/sa3/count_14> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_15> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_15> <up1/sg1/sa3/count_15> <clockfunction/sg1/sa3/count_15> <down1/sg2/sa3/count_15> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_16> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_16> <up1/sg1/sa3/count_16> <clockfunction/sg1/sa3/count_16> <down1/sg2/sa3/count_16> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_17> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_17> <up1/sg1/sa3/count_17> <clockfunction/sg1/sa3/count_17> <down1/sg2/sa3/count_17> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_10> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_10> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_11> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_11> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_12> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_12> 
@@ -500,16 +470,16 @@ INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_15> in Unit <doomsday> is equiv
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_16> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_16> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_sync_0> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_sync_0> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_sync_1> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_sync_1> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_0> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_0> <showclk0/sg1/sa3/count_0> <up1/sg1/sa3/count_0> <down1/sg2/sa3/count_0> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_1> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_1> <showclk0/sg1/sa3/count_1> <up1/sg1/sa3/count_1> <down1/sg2/sa3/count_1> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_2> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_2> <showclk0/sg1/sa3/count_2> <up1/sg1/sa3/count_2> <down1/sg2/sa3/count_2> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_3> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_3> <showclk0/sg1/sa3/count_3> <up1/sg1/sa3/count_3> <down1/sg2/sa3/count_3> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_4> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_4> <showclk0/sg1/sa3/count_4> <up1/sg1/sa3/count_4> <down1/sg2/sa3/count_4> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_5> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_5> <showclk0/sg1/sa3/count_5> <up1/sg1/sa3/count_5> <down1/sg2/sa3/count_5> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_6> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_6> <showclk0/sg1/sa3/count_6> <up1/sg1/sa3/count_6> <down1/sg2/sa3/count_6> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_7> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_7> <showclk0/sg1/sa3/count_7> <up1/sg1/sa3/count_7> <down1/sg2/sa3/count_7> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_8> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_8> <showclk0/sg1/sa3/count_8> <up1/sg1/sa3/count_8> <down1/sg2/sa3/count_8> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_9> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_9> <showclk0/sg1/sa3/count_9> <up1/sg1/sa3/count_9> <down1/sg2/sa3/count_9> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_0> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_0> <up1/sg1/sa3/count_0> <clockfunction/sg1/sa3/count_0> <down1/sg2/sa3/count_0> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_1> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_1> <up1/sg1/sa3/count_1> <clockfunction/sg1/sa3/count_1> <down1/sg2/sa3/count_1> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_2> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_2> <up1/sg1/sa3/count_2> <clockfunction/sg1/sa3/count_2> <down1/sg2/sa3/count_2> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_3> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_3> <up1/sg1/sa3/count_3> <clockfunction/sg1/sa3/count_3> <down1/sg2/sa3/count_3> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_4> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_4> <up1/sg1/sa3/count_4> <clockfunction/sg1/sa3/count_4> <down1/sg2/sa3/count_4> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_5> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_5> <up1/sg1/sa3/count_5> <clockfunction/sg1/sa3/count_5> <down1/sg2/sa3/count_5> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_6> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_6> <up1/sg1/sa3/count_6> <clockfunction/sg1/sa3/count_6> <down1/sg2/sa3/count_6> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_7> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_7> <up1/sg1/sa3/count_7> <clockfunction/sg1/sa3/count_7> <down1/sg2/sa3/count_7> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_8> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_8> <up1/sg1/sa3/count_8> <clockfunction/sg1/sa3/count_8> <down1/sg2/sa3/count_8> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_9> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_9> <up1/sg1/sa3/count_9> <clockfunction/sg1/sa3/count_9> <down1/sg2/sa3/count_9> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_0> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_0> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_1> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_1> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_2> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_2> 
@@ -521,14 +491,14 @@ INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_7> in Unit <doomsday> is equiva
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_8> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_8> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_cnt_9> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_cnt_9> 
 INFO:Xst:2261 - The FF/Latch <timer1/pbd0/PB_state> in Unit <doomsday> is equivalent to the following FF/Latch, which will be removed : <alarm1/pbd1/PB_state> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_10> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_10> <showclk0/sg1/sa3/count_10> <up1/sg1/sa3/count_10> <down1/sg2/sa3/count_10> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_11> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_11> <showclk0/sg1/sa3/count_11> <up1/sg1/sa3/count_11> <down1/sg2/sa3/count_11> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_12> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_12> <showclk0/sg1/sa3/count_12> <up1/sg1/sa3/count_12> <down1/sg2/sa3/count_12> 
-INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_13> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_13> <showclk0/sg1/sa3/count_13> <up1/sg1/sa3/count_13> <down1/sg2/sa3/count_13> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_10> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_10> <up1/sg1/sa3/count_10> <clockfunction/sg1/sa3/count_10> <down1/sg2/sa3/count_10> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_11> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_11> <up1/sg1/sa3/count_11> <clockfunction/sg1/sa3/count_11> <down1/sg2/sa3/count_11> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_12> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_12> <up1/sg1/sa3/count_12> <clockfunction/sg1/sa3/count_12> <down1/sg2/sa3/count_12> 
+INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_13> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_13> <up1/sg1/sa3/count_13> <clockfunction/sg1/sa3/count_13> <down1/sg2/sa3/count_13> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block doomsday, actual ratio is 6.
+Found area constraint ratio of 100 (+ 5) on block doomsday, actual ratio is 5.
 FlipFlop timer1/pbd0/PB_state has been replicated 2 time(s)
 FlipFlop timer1/pbd0/PB_sync_1 has been replicated 1 time(s)
 FlipFlop timer1/sg3/sa3/count_16 has been replicated 1 time(s)
@@ -540,8 +510,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 296
- Flip-Flops                                            : 296
+# Registers                                            : 294
+ Flip-Flops                                            : 294
 
 =========================================================================
 
@@ -564,25 +534,26 @@ Top Level Output File Name         : doomsday.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 829
+# BELS                             : 820
 #      GND                         : 1
-#      INV                         : 21
+#      INV                         : 25
 #      LUT1                        : 158
 #      LUT2                        : 27
-#      LUT3                        : 21
-#      LUT4                        : 76
-#      LUT5                        : 59
-#      LUT6                        : 139
+#      LUT3                        : 27
+#      LUT4                        : 72
+#      LUT5                        : 50
+#      LUT6                        : 133
 #      MUXCY                       : 158
 #      MUXF7                       : 3
 #      VCC                         : 1
 #      XORCY                       : 165
-# FlipFlops/Latches                : 296
-#      FD                          : 93
+# FlipFlops/Latches                : 294
+#      FD                          : 73
 #      FDCE                        : 124
+#      FDE                         : 14
 #      FDPE                        : 8
-#      FDR                         : 29
-#      FDRE                        : 42
+#      FDR                         : 21
+#      FDRE                        : 54
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
@@ -597,16 +568,16 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             296  out of  18224     1%  
- Number of Slice LUTs:                  501  out of   9112     5%  
-    Number used as Logic:               501  out of   9112     5%  
+ Number of Slice Registers:             294  out of  18224     1%  
+ Number of Slice LUTs:                  492  out of   9112     5%  
+    Number used as Logic:               492  out of   9112     5%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    506
-   Number with an unused Flip Flop:     210  out of    506    41%  
-   Number with an unused LUT:             5  out of    506     0%  
-   Number of fully used LUT-FF pairs:   291  out of    506    57%  
-   Number of unique control sets:        29
+ Number of LUT Flip Flop pairs used:    497
+   Number with an unused Flip Flop:     203  out of    497    40%  
+   Number with an unused LUT:             5  out of    497     1%  
+   Number of fully used LUT-FF pairs:   289  out of    497    58%  
+   Number of unique control sets:        32
 
 IO Utilization: 
  Number of IOs:                          20
@@ -636,7 +607,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 264   |
+clk                                | BUFGP                  | 262   |
 timer1/pbd0/PB_state               | BUFG                   | 32    |
 -----------------------------------+------------------------+-------+
 
@@ -660,7 +631,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 5.071ns (frequency: 197.192MHz)
-  Total number of paths / destination ports: 9723 / 444
+  Total number of paths / destination ports: 9202 / 456
 -------------------------------------------------------------------------
 Delay:               5.071ns (Levels of Logic = 4)
   Source:            alarm1/bin0_3 (FF)
@@ -675,7 +646,7 @@ Delay:               5.071ns (Levels of Logic = 4)
      FDRE:C->Q             7   0.447   1.002  alarm1/bin0_3 (alarm1/bin0_3)
      LUT6:I3->O            2   0.205   0.961  alarm1/bin3[3]_bin0[3]_AND_23_o6 (alarm1/bin3[3]_bin0[3]_AND_23_o6)
      LUT6:I1->O            9   0.203   0.830  alarm1/bin3[3]_bin0[3]_AND_23_o7_1 (alarm1/bin3[3]_bin0[3]_AND_23_o7)
-     LUT6:I5->O            4   0.205   0.912  alarm1/_n0238_inv11 (alarm1/_n0238_inv1)
+     LUT6:I5->O            4   0.205   0.912  alarm1/_n0264_inv11 (alarm1/_n0264_inv1)
      LUT6:I3->O            1   0.205   0.000  alarm1/bin1_3_rstpot1 (alarm1/bin1_3_rstpot1)
      FD:D                      0.102          alarm1/bin1_3
     ----------------------------------------
@@ -684,26 +655,27 @@ Delay:               5.071ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'timer1/pbd0/PB_state'
-  Clock period: 4.055ns (frequency: 246.636MHz)
-  Total number of paths / destination ports: 592 / 80
+  Clock period: 4.501ns (frequency: 222.183MHz)
+  Total number of paths / destination ports: 592 / 88
 -------------------------------------------------------------------------
-Delay:               4.055ns (Levels of Logic = 2)
-  Source:            alarm1/b1_1 (FF)
-  Destination:       alarm1/b1_3 (FF)
+Delay:               4.501ns (Levels of Logic = 3)
+  Source:            alarm1/b1_2 (FF)
+  Destination:       alarm1/b2_3 (FF)
   Source Clock:      timer1/pbd0/PB_state rising
   Destination Clock: timer1/pbd0/PB_state rising
 
-  Data Path: alarm1/b1_1 to alarm1/b1_3
+  Data Path: alarm1/b1_2 to alarm1/b2_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             6   0.447   0.973  alarm1/b1_1 (alarm1/b1_1)
-     LUT4:I1->O            3   0.205   0.995  alarm1/b1[3]_GND_12_o_equal_3_o<3>1 (alarm1/b1[3]_GND_12_o_equal_3_o)
-     LUT5:I0->O            8   0.203   0.802  alarm1/_n01501 (alarm1/_n0150)
-     FDRE:R                    0.430          alarm1/b1_0
+     FDRE:C->Q             6   0.447   0.973  alarm1/b1_2 (alarm1/b1_2)
+     LUT4:I1->O            2   0.205   0.617  alarm1/_n016031 (alarm1/_n0160_bdd2)
+     LUT5:I4->O            2   0.205   0.617  alarm1/_n016631 (alarm1/_n0166_bdd2)
+     LUT6:I5->O            8   0.205   0.802  alarm1/_n016611 (alarm1/_n0166)
+     FDRE:R                    0.430          alarm1/b2_0
     ----------------------------------------
-    Total                      4.055ns (1.285ns logic, 2.770ns route)
-                                       (31.7% logic, 68.3% route)
+    Total                      4.501ns (1.492ns logic, 3.009ns route)
+                                       (33.1% logic, 66.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -724,6 +696,27 @@ Offset:              4.913ns (Levels of Logic = 2)
     ----------------------------------------
     Total                      4.913ns (1.855ns logic, 3.058ns route)
                                        (37.8% logic, 62.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'timer1/pbd0/PB_state'
+  Total number of paths / destination ports: 64 / 64
+-------------------------------------------------------------------------
+Offset:              4.885ns (Levels of Logic = 3)
+  Source:            timerset (PAD)
+  Destination:       timer1/b2_3 (FF)
+  Destination Clock: timer1/pbd0/PB_state rising
+
+  Data Path: timerset to timer1/b2_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            17   1.222   1.372  timerset_IBUF (timerset_IBUF)
+     LUT5:I0->O            3   0.203   0.651  timer1/_n014871 (timer1/_n0148_bdd6)
+     LUT5:I4->O            8   0.205   0.802  timer1/_n01482111 (timer1/_n014821)
+     FDRE:R                    0.430          timer1/b1_0
+    ----------------------------------------
+    Total                      4.885ns (2.060ns logic, 2.825ns route)
+                                       (42.2% logic, 57.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -755,7 +748,7 @@ Clock to Setup on destination clock clk
 Source Clock        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------+---------+---------+---------+---------+
 clk                 |    5.071|         |         |         |
-timer1/pbd0/PB_state|    5.176|         |         |         |
+timer1/pbd0/PB_state|    5.234|         |         |         |
 --------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock timer1/pbd0/PB_state
@@ -763,20 +756,20 @@ Clock to Setup on destination clock timer1/pbd0/PB_state
                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------+---------+---------+---------+---------+
-timer1/pbd0/PB_state|    4.055|         |         |         |
+timer1/pbd0/PB_state|    4.501|         |         |         |
 --------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 15.00 secs
-Total CPU time to Xst completion: 14.86 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.34 secs
  
 --> 
 
-Total memory usage is 257380 kilobytes
+Total memory usage is 256996 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    9 (   0 filtered)
-Number of infos    :   46 (   0 filtered)
+Number of warnings :   11 (   0 filtered)
+Number of infos    :   42 (   0 filtered)
 

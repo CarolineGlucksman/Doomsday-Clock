@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module timer(output [6:0] seg, output [3:0] AN, input clk, input reset, input start, input increase
+module timer(output [6:0] seg, output [3:0] AN, input clk, input reset, input start, input increase, input mode
     );
 	wire slowclock, ignore, push, pushdown, pushup;
 	reg [3:0] bin0, bin1, bin2, bin3;
@@ -31,6 +31,8 @@ module timer(output [6:0] seg, output [3:0] AN, input clk, input reset, input st
 	PushButton_Debouncer pbd0(clk, increase, push, pushdown, pushup);
 	
 	always @ (posedge push)
+	if (mode)
+	begin
 	begin
 		if(b0 == 4'b1001)
 		begin  
@@ -54,6 +56,7 @@ module timer(output [6:0] seg, output [3:0] AN, input clk, input reset, input st
 		end
 		else 
 			b0 <= b0 + 4'b0001;
+	end
 	end
 	
 	always @ (posedge clk)

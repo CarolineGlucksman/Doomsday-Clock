@@ -1,0 +1,506 @@
+Release 14.2 - xst P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: countingdown.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "countingdown.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "countingdown"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : countingdown
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\seven_alternate.v" into library work
+Parsing module <seven_alternate>.
+Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\binary_to_segment.v" into library work
+Parsing module <binary_to_segment>.
+Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\SegDisplay.v" into library work
+Parsing module <SegDisplay>.
+Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\clock_divider.v" into library work
+Parsing module <clock_divider>.
+Analyzing Verilog file "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\countingdown.v" into library work
+Parsing module <countingdown>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <countingdown>.
+
+Elaborating module <clock_divider(COUNTER_DIV=35)>.
+
+Elaborating module <SegDisplay>.
+
+Elaborating module <seven_alternate>.
+WARNING:HDLCompiler:413 - "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\seven_alternate.v" Line 31: Result of 19-bit expression is truncated to fit in 18-bit target.
+
+Elaborating module <binary_to_segment>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <countingdown>.
+    Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\countingdown.v".
+    Found 4-bit register for signal <bin1>.
+    Found 4-bit register for signal <bin3>.
+    Found 4-bit register for signal <bin2>.
+    Found 4-bit register for signal <bin0>.
+    Found 4-bit subtractor for signal <bin3[3]_GND_1_o_sub_5_OUT> created at line 51.
+    Found 4-bit subtractor for signal <bin2[3]_GND_1_o_sub_7_OUT> created at line 54.
+    Found 4-bit subtractor for signal <bin1[3]_GND_1_o_sub_10_OUT> created at line 57.
+    Found 4-bit subtractor for signal <bin0[3]_GND_1_o_sub_14_OUT> created at line 60.
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred  16 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+Unit <countingdown> synthesized.
+
+Synthesizing Unit <clock_divider>.
+    Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\clock_divider.v".
+        COUNTER_DIV = 35
+    Found 35-bit register for signal <counter>.
+    Found 35-bit adder for signal <counter[34]_GND_2_o_add_1_OUT> created at line 38.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  35 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <clock_divider> synthesized.
+
+Synthesizing Unit <SegDisplay>.
+    Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\SegDisplay.v".
+    Summary:
+	no macro.
+Unit <SegDisplay> synthesized.
+
+Synthesizing Unit <seven_alternate>.
+    Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\seven_alternate.v".
+    Found 18-bit register for signal <count>.
+    Found 18-bit adder for signal <count[17]_GND_4_o_add_1_OUT> created at line 31.
+    Found 4x4-bit Read Only RAM for signal <AN>
+    Found 4-bit 4-to-1 multiplexer for signal <small_bin> created at line 40.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  18 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <seven_alternate> synthesized.
+
+Synthesizing Unit <binary_to_segment>.
+    Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\EC311\doomsday\binary_to_segment.v".
+    Found 16x7-bit Read Only RAM for signal <seven>
+    Summary:
+	inferred   1 RAM(s).
+Unit <binary_to_segment> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 16x7-bit single-port Read Only RAM                    : 1
+ 4x4-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 6
+ 18-bit adder                                          : 1
+ 35-bit adder                                          : 1
+ 4-bit subtractor                                      : 4
+# Registers                                            : 6
+ 18-bit register                                       : 1
+ 35-bit register                                       : 1
+ 4-bit register                                        : 4
+# Multiplexers                                         : 6
+ 35-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 4
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <binary_to_segment>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_seven> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <bin>           |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <seven>         |          |
+    -----------------------------------------------------------------------
+Unit <binary_to_segment> synthesized (advanced).
+
+Synthesizing (advanced) Unit <clock_divider>.
+The following registers are absorbed into counter <counter>: 1 register on signal <counter>.
+Unit <clock_divider> synthesized (advanced).
+
+Synthesizing (advanced) Unit <countingdown>.
+The following registers are absorbed into counter <bin1>: 1 register on signal <bin1>.
+The following registers are absorbed into counter <bin3>: 1 register on signal <bin3>.
+The following registers are absorbed into counter <bin2>: 1 register on signal <bin2>.
+The following registers are absorbed into counter <bin0>: 1 register on signal <bin0>.
+Unit <countingdown> synthesized (advanced).
+
+Synthesizing (advanced) Unit <seven_alternate>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_AN> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 4-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <count>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <AN>            |          |
+    -----------------------------------------------------------------------
+Unit <seven_alternate> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 16x7-bit single-port distributed Read Only RAM        : 1
+ 4x4-bit single-port distributed Read Only RAM         : 1
+# Counters                                             : 6
+ 18-bit up counter                                     : 1
+ 35-bit up counter                                     : 1
+ 4-bit down counter                                    : 4
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <countingdown> ...
+WARNING:Xst:1710 - FF/Latch <bin1_3> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bin3_3> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <clkdiv2/counter_24> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_25> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_26> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_27> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_28> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_29> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_30> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_31> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_32> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_33> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <clkdiv2/counter_34> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block countingdown, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 56
+ Flip-Flops                                            : 56
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : countingdown.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 191
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 40
+#      LUT2                        : 4
+#      LUT3                        : 3
+#      LUT4                        : 38
+#      LUT5                        : 8
+#      LUT6                        : 12
+#      MUXCY                       : 40
+#      VCC                         : 1
+#      XORCY                       : 42
+# FlipFlops/Latches                : 56
+#      FD                          : 18
+#      FDC                         : 24
+#      FDCE                        : 6
+#      FDPE                        : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 2
+#      OBUF                        : 11
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              56  out of  18224     0%  
+ Number of Slice LUTs:                  107  out of   9112     1%  
+    Number used as Logic:               107  out of   9112     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    107
+   Number with an unused Flip Flop:      51  out of    107    47%  
+   Number with an unused LUT:             0  out of    107     0%  
+   Number of fully used LUT-FF pairs:    56  out of    107    52%  
+   Number of unique control sets:         5
+
+IO Utilization: 
+ Number of IOs:                          14
+ Number of bonded IOBs:                  14  out of    232     6%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 56    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 4.129ns (Maximum Frequency: 242.169MHz)
+   Minimum input arrival time before clock: 3.028ns
+   Maximum output required time after clock: 6.217ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.129ns (frequency: 242.169MHz)
+  Total number of paths / destination ports: 1520 / 70
+-------------------------------------------------------------------------
+Delay:               4.129ns (Levels of Logic = 3)
+  Source:            clkdiv2/counter_5 (FF)
+  Destination:       clkdiv2/counter_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: clkdiv2/counter_5 to clkdiv2/counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.447   1.015  clkdiv2/counter_5 (clkdiv2/counter_5)
+     LUT6:I0->O            7   0.203   1.021  clkdiv2/clk_out<34>3 (clkdiv2/clk_out<34>2)
+     LUT4:I0->O           13   0.203   0.933  clkdiv2/clk_out<34>5 (slowclock)
+     LUT4:I3->O            1   0.205   0.000  clkdiv2/counter_23_rstpot (clkdiv2/counter_23_rstpot)
+     FDC:D                     0.102          clkdiv2/counter_23
+    ----------------------------------------
+    Total                      4.129ns (1.160ns logic, 2.969ns route)
+                                       (28.1% logic, 71.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 62 / 62
+-------------------------------------------------------------------------
+Offset:              3.028ns (Levels of Logic = 1)
+  Source:            reset (PAD)
+  Destination:       bin2_1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to bin2_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            38   1.222   1.376  reset_IBUF (reset_IBUF)
+     FDCE:CLR                  0.430          bin2_1
+    ----------------------------------------
+    Total                      3.028ns (1.652ns logic, 1.376ns route)
+                                       (54.5% logic, 45.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 162 / 11
+-------------------------------------------------------------------------
+Offset:              6.217ns (Levels of Logic = 3)
+  Source:            sg2/sa3/count_16 (FF)
+  Destination:       seg<6> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: sg2/sa3/count_16 to seg<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               9   0.447   1.194  sg2/sa3/count_16 (sg2/sa3/count_16)
+     LUT6:I0->O            7   0.203   1.021  sg2/sa3/Mmux_small_bin11 (sg2/small_bin<0>)
+     LUT4:I0->O            1   0.203   0.579  sg2/b2s3/Mram_seven21 (seg_2_OBUF)
+     OBUF:I->O                 2.571          seg_2_OBUF (seg<2>)
+    ----------------------------------------
+    Total                      6.217ns (3.424ns logic, 2.793ns route)
+                                       (55.1% logic, 44.9% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    4.129|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.18 secs
+ 
+--> 
+
+Total memory usage is 254564 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   14 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

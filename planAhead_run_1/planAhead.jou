@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# PlanAhead v14.2 (64-bit)
+# Build 194362 by xbuild on Fri Jul 20 18:52:11 MDT 2012
+# Start of session at: Wed Dec 09 00:07:16 2015
+# Process ID: 315716
+# Log file: X:/Desktop/EC311/doomsday/planAhead_run_1/planAhead.log
+# Journal file: X:/Desktop/EC311/doomsday/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source X:/Desktop/EC311/doomsday/pa.fromHdl.tcl
+startgroup
+set_property package_pin T9 [get_ports countdown]
+endgroup
+startgroup
+set_property package_pin T10 [get_ports countup]
+endgroup
+save_design

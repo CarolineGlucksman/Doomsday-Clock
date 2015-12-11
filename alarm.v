@@ -18,15 +18,14 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module alarm(output [6:0] seg, output [3:0] AN, input clk, input reset, input start, input increase, input mode, input current0, input current1, input current2, input current3
+module alarm(output [6:0] seg, output [3:0] AN, input clk, input reset, input start, input increase, input mode, input [3:0] current0, input [3:0] current1, input [3:0] current2, input [3:0] current3
     );
-	wire slowclock, ignore, push, pushdown, pushup;
+	wire push, pushdown, pushup;
 	reg [3:0] bin0, bin1, bin2, bin3;
 	reg [3:0] b0, b1, b2, b3;
+
 	
 	//RESET STILL NEEDS TO BE FIXED
-	
-	clock_divider #(.COUNTER_DIV(26)) clkdivalarm (slowclock, clk, reset, start);
 	
 	PushButton_Debouncer pbd1(clk, increase, push, pushdown, pushup);
 
@@ -62,7 +61,15 @@ module alarm(output [6:0] seg, output [3:0] AN, input clk, input reset, input st
 	
 	always @ (posedge clk)
 	begin
-	if (reset)
+	if ((b3 == current3) & (current2 == b2) & (current1 == b1) & (current0 == b0)) 
+	begin
+
+		bin0 <= 4'b1010;
+		bin1 <= 4'b1010;
+		bin2 <= 4'b1010;
+		bin3 <= 4'b1010;
+		end
+	else if (reset)
 	begin
 		bin0 <= 4'b0;
 		bin1 <= 4'b0;
@@ -76,45 +83,8 @@ module alarm(output [6:0] seg, output [3:0] AN, input clk, input reset, input st
 		bin2 <= b2;
 		bin3 <= b3;
 	end
-else if (slowclock)
-	begin
-		if (bin3 == current3 && current2 == b2 && current1 == b1 && current0 == b0) begin
-			bin0 <= b0;
-			bin1 <= b1;
-			bin2 <= b2;
-			bin3 <= b3;
-		end		
-		else if(bin0 == 4'b1001)
-		begin  
-			bin0 <= 0;
-			if (bin1 == 4'b0101)
-			begin  
-				bin1 <= 0;
-				if (bin2 == 4'b1001) 
-				begin 
-					bin2 <= 0;
-					if(bin3 == 4'b0101) begin
-						bin0 <= b0;
-						bin1 <= b1;
-						bin2 <= b2;
-						bin3 <= b3;
-						end
-					else
-						bin3 <= bin3 + 4'b0001;
-				end
-				else
-					bin2 <= bin2 + 4'b0001;
-			end
-			else
-				bin1 <= bin1 + 4'b0001;
 		end
-		else 
-			bin0 <= bin0 + 4'b0001;
-	end
-	end
-	
-
-
+		
 	SegDisplay sg4(seg, AN, bin0, bin1, bin2, bin3, clk);
 
 endmodule

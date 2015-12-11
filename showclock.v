@@ -23,6 +23,7 @@ module showclock(output [6:0] seg, output [3:0] AN, output reg [3:0] bin3, outpu
 	wire slowclock;
 	wire reset = 0;
 	wire start = 1;
+	reg [3:0] d0, d1, d2, d3 = 0;
 	
 	clock_divider #(.COUNTER_DIV(26)) clkdiv8(slowclock, clk, reset, start);
 	
@@ -59,8 +60,15 @@ module showclock(output [6:0] seg, output [3:0] AN, output reg [3:0] bin3, outpu
 		else 
 			bin0 <= bin0 + 4'b0001;
 	end
+	
+	always @ (*) begin
+		d0 <= bin0;
+		d1 <= bin1;
+		d2 <= bin2;
+		d3 <= bin3;
+		end
 
-	SegDisplay sg1(seg, AN, bin0, bin1, bin2, bin3, clk);
+	SegDisplay sg1(seg, AN, d0, d1, d2, d3, clk);
 	
 
 endmodule

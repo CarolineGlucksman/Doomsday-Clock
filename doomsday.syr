@@ -3,8 +3,8 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -156,8 +156,7 @@ Elaborating module <PushButton_Debouncer>.
 WARNING:HDLCompiler:1127 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\timer.v" Line 31: Assignment to pushup ignored, since the identifier is never used
 
 Elaborating module <alarm>.
-WARNING:HDLCompiler:1127 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\alarm.v" Line 31: Assignment to pushup ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\doomsday.v" Line 72: Size mismatch in connection of port <current0>. Formal port size is 1-bit while actual signal size is 4-bit.
+WARNING:HDLCompiler:1127 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\alarm.v" Line 30: Assignment to pushup ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -182,10 +181,10 @@ Synthesizing Unit <showclock>.
     Found 4-bit register for signal <bin2>.
     Found 4-bit register for signal <bin3>.
     Found 4-bit register for signal <bin0>.
-    Found 4-bit adder for signal <bin3[3]_GND_2_o_add_5_OUT> created at line 51.
-    Found 4-bit adder for signal <bin2[3]_GND_2_o_add_7_OUT> created at line 54.
-    Found 4-bit adder for signal <bin1[3]_GND_2_o_add_10_OUT> created at line 57.
-    Found 4-bit adder for signal <bin0[3]_GND_2_o_add_14_OUT> created at line 60.
+    Found 4-bit adder for signal <bin3[3]_GND_2_o_add_5_OUT> created at line 52.
+    Found 4-bit adder for signal <bin2[3]_GND_2_o_add_7_OUT> created at line 55.
+    Found 4-bit adder for signal <bin1[3]_GND_2_o_add_10_OUT> created at line 58.
+    Found 4-bit adder for signal <bin0[3]_GND_2_o_add_14_OUT> created at line 61.
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  16 D-type flip-flop(s).
@@ -300,7 +299,8 @@ Unit <PushButton_Debouncer> synthesized.
 
 Synthesizing Unit <alarm>.
     Related source file is "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\alarm.v".
-INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\alarm.v" line 31: Output port <PB_up> of the instance <pbd1> is unconnected or connected to loadless signal.
+WARNING:Xst:647 - Input <start> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\alarm.v" line 30: Output port <PB_up> of the instance <pbd1> is unconnected or connected to loadless signal.
     Found 4-bit register for signal <b1>.
     Found 4-bit register for signal <b2>.
     Found 4-bit register for signal <b3>.
@@ -309,23 +309,18 @@ INFO:Xst:3210 - "\\ad\eng\users\c\t\ctjones\Desktop\Doomsday-Clock\alarm.v" line
     Found 4-bit register for signal <bin2>.
     Found 4-bit register for signal <bin3>.
     Found 4-bit register for signal <b0>.
-    Found 4-bit adder for signal <b3[3]_GND_12_o_add_5_OUT> created at line 50.
-    Found 4-bit adder for signal <b2[3]_GND_12_o_add_7_OUT> created at line 53.
-    Found 4-bit adder for signal <b1[3]_GND_12_o_add_10_OUT> created at line 56.
-    Found 4-bit adder for signal <b0[3]_GND_12_o_add_14_OUT> created at line 59.
-    Found 4-bit adder for signal <bin3[3]_GND_12_o_add_36_OUT> created at line 103.
-    Found 4-bit adder for signal <bin2[3]_GND_12_o_add_41_OUT> created at line 106.
-    Found 4-bit adder for signal <bin1[3]_GND_12_o_add_46_OUT> created at line 109.
-    Found 4-bit adder for signal <bin0[3]_GND_12_o_add_51_OUT> created at line 112.
-    Found 4-bit comparator equal for signal <bin3[3]_GND_12_o_equal_29_o> created at line 81
-    Found 4-bit comparator equal for signal <GND_12_o_b2[3]_equal_30_o> created at line 81
-    Found 4-bit comparator equal for signal <GND_12_o_b1[3]_equal_31_o> created at line 81
-    Found 4-bit comparator equal for signal <GND_12_o_b0[3]_equal_32_o> created at line 81
+    Found 4-bit adder for signal <b3[3]_GND_12_o_add_5_OUT> created at line 49.
+    Found 4-bit adder for signal <b2[3]_GND_12_o_add_7_OUT> created at line 52.
+    Found 4-bit adder for signal <b1[3]_GND_12_o_add_10_OUT> created at line 55.
+    Found 4-bit adder for signal <b0[3]_GND_12_o_add_14_OUT> created at line 58.
+    Found 4-bit comparator equal for signal <b3[3]_current3[3]_equal_29_o> created at line 64
+    Found 4-bit comparator equal for signal <current2[3]_b2[3]_equal_30_o> created at line 64
+    Found 4-bit comparator equal for signal <current1[3]_b1[3]_equal_31_o> created at line 64
+    Found 4-bit comparator equal for signal <current0[3]_b0[3]_equal_32_o> created at line 64
     Summary:
-	inferred   8 Adder/Subtractor(s).
+	inferred   4 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
 	inferred   4 Comparator(s).
-	inferred  15 Multiplexer(s).
 Unit <alarm> synthesized.
 
 =========================================================================
@@ -335,24 +330,24 @@ Macro Statistics
 # RAMs                                                 : 10
  16x7-bit single-port Read Only RAM                    : 5
  4x4-bit single-port Read Only RAM                     : 5
-# Adders/Subtractors                                   : 40
+# Adders/Subtractors                                   : 35
  17-bit adder                                          : 2
  18-bit adder                                          : 5
- 26-bit adder                                          : 5
- 4-bit adder                                           : 20
+ 26-bit adder                                          : 4
+ 4-bit adder                                           : 16
  4-bit subtractor                                      : 8
-# Registers                                            : 52
+# Registers                                            : 51
  1-bit register                                        : 10
  17-bit register                                       : 2
  18-bit register                                       : 5
- 26-bit register                                       : 5
+ 26-bit register                                       : 4
  4-bit register                                        : 29
  7-bit register                                        : 1
 # Comparators                                          : 6
  1-bit comparator equal                                : 2
  4-bit comparator equal                                : 4
-# Multiplexers                                         : 44
- 4-bit 2-to-1 multiplexer                              : 35
+# Multiplexers                                         : 29
+ 4-bit 2-to-1 multiplexer                              : 20
  4-bit 4-to-1 multiplexer                              : 5
  7-bit 2-to-1 multiplexer                              : 4
 
@@ -443,13 +438,12 @@ Macro Statistics
 # RAMs                                                 : 10
  16x7-bit single-port distributed Read Only RAM        : 5
  4x4-bit single-port distributed Read Only RAM         : 5
-# Adders/Subtractors                                   : 7
- 4-bit adder                                           : 4
+# Adders/Subtractors                                   : 3
  4-bit subtractor                                      : 3
-# Counters                                             : 33
+# Counters                                             : 32
  17-bit up counter                                     : 2
  18-bit up counter                                     : 5
- 26-bit up counter                                     : 5
+ 26-bit up counter                                     : 4
  4-bit down counter                                    : 5
  4-bit up counter                                      : 16
 # Registers                                            : 49
@@ -457,8 +451,8 @@ Macro Statistics
 # Comparators                                          : 6
  1-bit comparator equal                                : 2
  4-bit comparator equal                                : 4
-# Multiplexers                                         : 35
- 4-bit 2-to-1 multiplexer                              : 26
+# Multiplexers                                         : 20
+ 4-bit 2-to-1 multiplexer                              : 11
  4-bit 4-to-1 multiplexer                              : 5
  7-bit 2-to-1 multiplexer                              : 4
 
@@ -481,6 +475,7 @@ Optimizing unit <countingup> ...
 Optimizing unit <countingdown> ...
 WARNING:Xst:1710 - FF/Latch <bin1_3> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bin3_3> (without init value) has a constant value of 0 in block <countingdown>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <alarmstart> of sequential type is unconnected in block <doomsday>.
 WARNING:Xst:1710 - FF/Latch <up1/bin3_3> (without init value) has a constant value of 0 in block <doomsday>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <up1/bin1_3> (without init value) has a constant value of 0 in block <doomsday>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_14> in Unit <doomsday> is equivalent to the following 4 FFs/Latches, which will be removed : <alarm1/sg4/sa3/count_14> <showclk0/sg1/sa3/count_14> <up1/sg1/sa3/count_14> <down1/sg2/sa3/count_14> 
@@ -524,21 +519,24 @@ INFO:Xst:2261 - The FF/Latch <timer1/sg3/sa3/count_13> in Unit <doomsday> is equ
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block doomsday, actual ratio is 6.
-FlipFlop alarm1/bin3_0 has been replicated 1 time(s)
-FlipFlop timer1/pbd0/PB_state has been replicated 2 time(s)
-FlipFlop timer1/pbd0/PB_sync_1 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 5) on block doomsday, actual ratio is 5.
 FlipFlop timer1/sg3/sa3/count_16 has been replicated 1 time(s)
 FlipFlop timer1/sg3/sa3/count_17 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
+Processing Unit <doomsday> :
+	Found 2-bit shift register for signal <timer1/pbd0/PB_sync_1>.
+Unit <doomsday> processed.
+
 =========================================================================
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 297
- Flip-Flops                                            : 297
+# Registers                                            : 264
+ Flip-Flops                                            : 264
+# Shift Registers                                      : 1
+ 2-bit shift register                                  : 1
 
 =========================================================================
 
@@ -561,30 +559,33 @@ Top Level Output File Name         : doomsday.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 840
+# BELS                             : 699
 #      GND                         : 1
-#      INV                         : 22
-#      LUT1                        : 158
-#      LUT2                        : 25
-#      LUT3                        : 22
-#      LUT4                        : 74
-#      LUT5                        : 65
-#      LUT6                        : 144
-#      MUXCY                       : 158
-#      MUXF7                       : 5
+#      INV                         : 19
+#      LUT1                        : 133
+#      LUT2                        : 31
+#      LUT3                        : 20
+#      LUT4                        : 58
+#      LUT5                        : 52
+#      LUT6                        : 109
+#      MUXCY                       : 133
+#      MUXF7                       : 3
 #      VCC                         : 1
-#      XORCY                       : 165
-# FlipFlops/Latches                : 297
-#      FD                          : 86
-#      FDCE                        : 124
+#      XORCY                       : 139
+# FlipFlops/Latches                : 265
+#      FD                          : 76
+#      FDCE                        : 98
+#      FDE                         : 1
 #      FDPE                        : 8
-#      FDR                         : 21
-#      FDRE                        : 58
+#      FDR                         : 20
+#      FDRE                        : 62
+# Shift Registers                  : 1
+#      SRLC16E                     : 1
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 19
-#      IBUF                        : 8
+# IO Buffers                       : 18
+#      IBUF                        : 7
 #      OBUF                        : 11
 
 Device utilization summary:
@@ -594,20 +595,22 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             297  out of  18224     1%  
- Number of Slice LUTs:                  510  out of   9112     5%  
-    Number used as Logic:               510  out of   9112     5%  
+ Number of Slice Registers:             265  out of  18224     1%  
+ Number of Slice LUTs:                  423  out of   9112     4%  
+    Number used as Logic:               422  out of   9112     4%  
+    Number used as Memory:                1  out of   2176     0%  
+       Number used as SRL:                1
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    516
-   Number with an unused Flip Flop:     219  out of    516    42%  
-   Number with an unused LUT:             6  out of    516     1%  
-   Number of fully used LUT-FF pairs:   291  out of    516    56%  
-   Number of unique control sets:        30
+ Number of LUT Flip Flop pairs used:    430
+   Number with an unused Flip Flop:     165  out of    430    38%  
+   Number with an unused LUT:             7  out of    430     1%  
+   Number of fully used LUT-FF pairs:   258  out of    430    60%  
+   Number of unique control sets:        29
 
 IO Utilization: 
  Number of IOs:                          20
- Number of bonded IOBs:                  20  out of    232     8%  
+ Number of bonded IOBs:                  19  out of    232     8%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
@@ -633,7 +636,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 265   |
+clk                                | BUFGP                  | 234   |
 timer1/pbd0/PB_state               | BUFG                   | 32    |
 -----------------------------------+------------------------+-------+
 
@@ -645,8 +648,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 5.010ns (Maximum Frequency: 199.595MHz)
-   Minimum input arrival time before clock: 4.911ns
+   Minimum period: 5.136ns (Maximum Frequency: 194.704MHz)
+   Minimum input arrival time before clock: 4.862ns
    Maximum output required time after clock: 3.597ns
    Maximum combinational path delay: No path found
 
@@ -656,34 +659,34 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.010ns (frequency: 199.595MHz)
-  Total number of paths / destination ports: 9553 / 452
+  Clock period: 5.136ns (frequency: 194.704MHz)
+  Total number of paths / destination ports: 7381 / 400
 -------------------------------------------------------------------------
-Delay:               5.010ns (Levels of Logic = 3)
-  Source:            timer1/pbd0/PB_cnt_1 (FF)
-  Destination:       alarm1/bin1_3 (FF)
+Delay:               5.136ns (Levels of Logic = 3)
+  Source:            showclk0/bin3_3 (FF)
+  Destination:       alarm1/bin3_3 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: timer1/pbd0/PB_cnt_1 to alarm1/bin1_3
+  Data Path: showclk0/bin3_3 to alarm1/bin3_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              3   0.447   0.898  timer1/pbd0/PB_cnt_1 (timer1/pbd0/PB_cnt_1)
-     LUT4:I0->O            3   0.203   0.879  alarm1/pbd1/out2 (alarm1/pbd1/out1)
-     LUT5:I2->O           14   0.205   1.062  alarm1/pbd1/out4 (alarm1/pbd1/PB_cnt_max)
-     LUT6:I4->O            4   0.203   0.683  alarm1/Reset_OR_DriverANDClockEnable41 (alarm1/Reset_OR_DriverANDClockEnable4)
-     FDRE:R                    0.430          alarm1/bin1_3
+     FD:C->Q               5   0.447   0.943  showclk0/bin3_3 (showclk0/bin3_3)
+     LUT6:I3->O            1   0.205   0.924  alarm1/b3[3]_current0[3]_AND_23_o1 (alarm1/b3[3]_current0[3]_AND_23_o1)
+     LUT6:I1->O           11   0.203   0.883  alarm1/b3[3]_current0[3]_AND_23_o7 (alarm1/b3[3]_current0[3]_AND_23_o)
+     LUT4:I3->O           16   0.205   1.004  alarm1/pushdown11 (alarm1/pushdown1)
+     FDRE:CE                   0.322          alarm1/bin0_0
     ----------------------------------------
-    Total                      5.010ns (1.488ns logic, 3.522ns route)
-                                       (29.7% logic, 70.3% route)
+    Total                      5.136ns (1.382ns logic, 3.754ns route)
+                                       (26.9% logic, 73.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'timer1/pbd0/PB_state'
-  Clock period: 4.501ns (frequency: 222.183MHz)
+  Clock period: 4.471ns (frequency: 223.661MHz)
   Total number of paths / destination ports: 592 / 88
 -------------------------------------------------------------------------
-Delay:               4.501ns (Levels of Logic = 3)
+Delay:               4.471ns (Levels of Logic = 3)
   Source:            alarm1/b1_2 (FF)
   Destination:       alarm1/b2_3 (FF)
   Source Clock:      timer1/pbd0/PB_state rising
@@ -693,40 +696,42 @@ Delay:               4.501ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             6   0.447   0.973  alarm1/b1_2 (alarm1/b1_2)
-     LUT4:I1->O            2   0.205   0.617  alarm1/_n016431 (alarm1/_n0164_bdd2)
-     LUT5:I4->O            2   0.205   0.617  alarm1/_n017031 (alarm1/_n0170_bdd2)
-     LUT6:I5->O            8   0.205   0.802  alarm1/_n017011 (alarm1/_n0170)
+     FDRE:C->Q             5   0.447   0.943  alarm1/b1_2 (alarm1/b1_2)
+     LUT4:I1->O            2   0.205   0.617  alarm1/_n010431 (alarm1/_n0104_bdd2)
+     LUT5:I4->O            2   0.205   0.617  alarm1/_n011031 (alarm1/_n0110_bdd2)
+     LUT6:I5->O            8   0.205   0.802  alarm1/_n011011 (alarm1/_n0110)
      FDRE:R                    0.430          alarm1/b2_0
     ----------------------------------------
-    Total                      4.501ns (1.492ns logic, 3.009ns route)
-                                       (33.1% logic, 66.9% route)
+    Total                      4.471ns (1.492ns logic, 2.979ns route)
+                                       (33.4% logic, 66.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 230 / 181
+  Total number of paths / destination ports: 195 / 152
 -------------------------------------------------------------------------
-Offset:              4.911ns (Levels of Logic = 2)
-  Source:            reset (PAD)
-  Destination:       timer1/bin3_3 (FF)
+Offset:              4.840ns (Levels of Logic = 4)
+  Source:            alarmset (PAD)
+  Destination:       seg_0 (FF)
   Destination Clock: clk rising
 
-  Data Path: reset to timer1/bin3_3
+  Data Path: alarmset to seg_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           151   1.222   2.374  reset_IBUF (reset_IBUF)
-     LUT6:I0->O            4   0.203   0.683  alarm1/Reset_OR_DriverANDClockEnable101 (alarm1/Reset_OR_DriverANDClockEnable10)
-     FDRE:R                    0.430          alarm1/bin0_2
+     IBUF:I->O            23   1.222   1.498  alarmset_IBUF (alarmset_IBUF)
+     LUT5:I0->O            1   0.203   0.827  Mmux_segtemp00[6]_segtemp0[6]_mux_8_OUT101 (Mmux_segtemp00[6]_segtemp0[6]_mux_8_OUT10)
+     LUT6:I2->O            1   0.203   0.580  Mmux_segtemp00[6]_segtemp0[6]_mux_8_OUT105 (Mmux_segtemp00[6]_segtemp0[6]_mux_8_OUT104)
+     LUT6:I5->O            1   0.205   0.000  Mmux_segtemp00[6]_segtemp0[6]_mux_8_OUT106 (segtemp00[6]_segtemp0[6]_mux_8_OUT<4>)
+     FD:D                      0.102          seg_4
     ----------------------------------------
-    Total                      4.911ns (1.855ns logic, 3.056ns route)
-                                       (37.8% logic, 62.2% route)
+    Total                      4.840ns (1.935ns logic, 2.905ns route)
+                                       (40.0% logic, 60.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'timer1/pbd0/PB_state'
   Total number of paths / destination ports: 64 / 64
 -------------------------------------------------------------------------
-Offset:              4.885ns (Levels of Logic = 3)
+Offset:              4.862ns (Levels of Logic = 3)
   Source:            timerset (PAD)
   Destination:       timer1/b2_3 (FF)
   Destination Clock: timer1/pbd0/PB_state rising
@@ -735,13 +740,13 @@ Offset:              4.885ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            17   1.222   1.372  timerset_IBUF (timerset_IBUF)
+     IBUF:I->O            16   1.222   1.349  timerset_IBUF (timerset_IBUF)
      LUT5:I0->O            3   0.203   0.651  timer1/_n014871 (timer1/_n0148_bdd6)
      LUT5:I4->O            8   0.205   0.802  timer1/_n01482111 (timer1/_n014821)
      FDRE:R                    0.430          timer1/b1_0
     ----------------------------------------
-    Total                      4.885ns (2.060ns logic, 2.825ns route)
-                                       (42.2% logic, 57.8% route)
+    Total                      4.862ns (2.060ns logic, 2.802ns route)
+                                       (42.4% logic, 57.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -772,8 +777,8 @@ Clock to Setup on destination clock clk
                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------+---------+---------+---------+---------+
-clk                 |    5.010|         |         |         |
-timer1/pbd0/PB_state|    6.219|         |         |         |
+clk                 |    5.136|         |         |         |
+timer1/pbd0/PB_state|    5.270|         |         |         |
 --------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock timer1/pbd0/PB_state
@@ -781,20 +786,20 @@ Clock to Setup on destination clock timer1/pbd0/PB_state
                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------+---------+---------+---------+---------+
-timer1/pbd0/PB_state|    4.501|         |         |         |
+timer1/pbd0/PB_state|    4.471|         |         |         |
 --------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.42 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.60 secs
  
 --> 
 
-Total memory usage is 257124 kilobytes
+Total memory usage is 257316 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    9 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
 Number of infos    :   42 (   0 filtered)
 

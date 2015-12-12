@@ -1,7 +1,7 @@
 Release 14.2 par P.28xd (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-ECE-PHO115-16::  Thu Dec 10 23:40:34 2015
+ECE-PHO115-17::  Fri Dec 11 13:05:40 2015
 
 par -w -intstyle ise -ol high -mt off doomsday_map.ncd doomsday.ncd
 doomsday.pcf 
@@ -108,11 +108,11 @@ Starting Router
 
 Phase  1  : 1746 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 1480 unrouted;      REAL time: 3 secs 
+Phase  2  : 1480 unrouted;      REAL time: 4 secs 
 
 Phase  3  : 462 unrouted;      REAL time: 4 secs 
 
-Phase  4  : 462 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Phase  4  : 462 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
 Updating file: doomsday.ncd with current fully routed design.
 
@@ -170,8 +170,8 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 49 secs 
-Total CPU time to PAR completion: 9 secs 
+Total REAL time to PAR completion: 1 mins 2 secs 
+Total CPU time to PAR completion: 8 secs 
 
 Peak Memory Usage:  341 MB
 

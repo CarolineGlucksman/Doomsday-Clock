@@ -31,9 +31,9 @@ module timer(output [6:0] seg, output [3:0] AN, input clk, input reset, input st
 	PushButton_Debouncer pbd0(clk, increase, push, pushdown, pushup);
 	
 	always @ (posedge push)
-	if (mode)
 	begin
-	begin
+		if (mode)
+			begin
 		if(b0 == 4'b1001)
 		begin  
 			b0 <= 0;
